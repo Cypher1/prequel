@@ -1,6 +1,20 @@
-fn main() {
-    use pg_parse::ast::Node;
+use pg_parse::ast::Node;
 
+#[derive(Default, Debug)]
+struct Ctx {
+
+}
+
+
+fn traverse(ctx: &mut Ctx, node: &Node) -> () {
+    match node {
+        Node::SelectStmt(select) => {
+
+        }
+    }
+}
+
+fn main() {
     let args: Vec<String> = std::env::args().collect();
     let path = &args[1];
     let input = std::fs::read_to_string(&path).expect("?");
@@ -9,6 +23,8 @@ fn main() {
     let result = result.unwrap();
     assert!(matches!(*&result[0], Node::SelectStmt(_)));
     dbg!(&result[0]);
+    let mut ctx = Ctx::default();
+    dbg!(traverse(&mut ctx, &result[0]));
 }
 
 #[test]
