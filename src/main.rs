@@ -8,6 +8,7 @@ fn main() {
     assert!(result.is_ok());
     let result = result.unwrap();
     assert!(matches!(*&result[0], Node::SelectStmt(_)));
+    dbg!(&result[0]);
 }
 
 #[test]
