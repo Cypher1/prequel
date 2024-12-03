@@ -1,0 +1,7 @@
+[package]
+name = "Prequel"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+pg_parse = "0.11.0"
